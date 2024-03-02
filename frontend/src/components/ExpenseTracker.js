@@ -19,12 +19,12 @@ const ExpenseTracker = () => {
     
         //add transaction to list
         setTransaction((preTrans)=>[...preTrans,{description,amount:parsedAmount},])
-        let Res = await axios.post("http://localhost:3009/expenses",{ description:description,
+        let Res = await axios.post("https://expensetracker-y3xu.onrender.com/expenses",{ description:description,
         amount:parsedAmount})
         console.log(Res,"postmethod")
         //clear form
-        setDescription()
-        setAmount()
+        setDescription("")
+        setAmount("")
     }
   return (
     <div> 
