@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from "axios"
 
 const ExpenseTracker = () => {
@@ -26,6 +26,15 @@ const ExpenseTracker = () => {
         setDescription("")
         setAmount("")
     }
+    const getAllExpenses = async()=>{
+        let Res = await axios.get("https://expensetracker-y3xu.onrender.com/expenses")
+        console.log(Res, "get request")
+        setTransaction(Res.data)
+    }
+
+    useEffect(()=>{
+        getAllExpenses()
+    },[])
   return (
     <div> 
         <div className='container'>
